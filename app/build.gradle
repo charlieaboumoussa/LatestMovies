@@ -1,0 +1,109 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdk 30
+
+    signingConfigs {
+        signed {
+            storeFile file(rootProject.file('keystore/amcb-keystore.jks'))
+            storePassword 'LpKoJi098)(*'
+            keyAlias 'latestmovies'
+            keyPassword 'LpKoJi098)(*'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.example.latestmovies"
+        minSdk 21
+        targetSdk 30
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    def versionNumber = "1.0.0"
+    def buildNumber = 1
+
+    flavorDimensions "environment"
+    productFlavors {
+        dev {
+            dimension "environment"
+            applicationIdSuffix ".dev"
+            versionCode 1
+            versionName "$versionNumber-dev-$buildNumber"
+            resValue "string", "app_name", "DLatestMovies"
+            resValue "string", "api", "https://"
+        }
+
+        sandbox {
+            dimension "environment"
+            applicationIdSuffix ".sandbox"
+            versionCode 1
+            versionName "$versionNumber-sandbox-$buildNumber"
+            resValue "string", "app_name", "TLatestMovies"
+            resValue "string", "api", "https://"
+        }
+
+        staging {
+            dimension "environment"
+            applicationIdSuffix ".staging"
+            versionCode 1
+            versionName "$versionNumber-staging-$buildNumber"
+            resValue "string", "app_name", "SLatestMovies"
+            resValue "string", "api", "https:"
+        }
+
+        production {
+            dimension "environment"
+            versionCode 11
+            applicationId "com.example.latestmovies"
+            versionName "$versionNumber"
+            resValue "string", "app_name", "LatestMovies"
+            resValue "string", "api", "https://"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+def room_version = "2.3.0"
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.3.1'
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
