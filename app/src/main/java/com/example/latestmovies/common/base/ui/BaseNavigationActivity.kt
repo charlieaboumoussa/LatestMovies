@@ -1,4 +1,4 @@
-package com.example.latestmovies.base
+package com.example.latestmovies.common.base.ui
 
 import android.os.Bundle
 import androidx.annotation.NavigationRes
@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import com.example.latestmovies.R
+import com.example.latestmovies.common.base.state.BaseViewModel
 
 abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
 
