@@ -1,14 +1,16 @@
-package com.example.latestmovies.base
+package com.example.latestmovies.common.base.ui
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.example.latestmovies.base.models.Resource
+import com.example.latestmovies.common.base.state.BaseViewModel
+import com.example.latestmovies.common.base.models.Resource
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -18,6 +20,7 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
     abstract protected fun getViewModelClass() : Class<T>
 
+    @LayoutRes
     abstract fun getContentViewId() : Int
 
     override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
