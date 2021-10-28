@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface MoviesServiceInterface {
 
-    @GET("/get")
-    suspend fun getMovies(): Call<List<Movie>>
+    @GET("trending/movie/week")
+    fun getLatestMoviesPerWeek(): Call<MoviesResponse>
 }

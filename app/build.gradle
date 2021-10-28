@@ -24,6 +24,8 @@ android {
         versionCode 1
         versionName "1.0.0"
 
+        resValue "string", "api_key", "0ee0ad3c741fdb7032b9475e5b9be6fb"
+        resValue "string", "poster_url", "https://image.tmdb.org/t/p/original/"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -45,7 +47,7 @@ android {
             versionCode 1
             versionName "$versionNumber-dev-$buildNumber"
             resValue "string", "app_name", "DLatestMovies"
-            resValue "string", "api", "https://"
+            resValue "string", "api", "https://api.themoviedb.org/3/"
         }
 
         sandbox {
@@ -54,7 +56,7 @@ android {
             versionCode 1
             versionName "$versionNumber-sandbox-$buildNumber"
             resValue "string", "app_name", "TLatestMovies"
-            resValue "string", "api", "https://"
+            resValue "string", "api", "https://api.themoviedb.org/3/"
         }
 
         staging {
@@ -63,7 +65,7 @@ android {
             versionCode 1
             versionName "$versionNumber-staging-$buildNumber"
             resValue "string", "app_name", "SLatestMovies"
-            resValue "string", "api", "https:"
+            resValue "string", "api", "https://api.themoviedb.org/3/"
         }
 
         production {
@@ -71,7 +73,7 @@ android {
             versionCode 11
             versionName "$versionNumber"
             resValue "string", "app_name", "LatestMovies"
-            resValue "string", "api", "https://"
+            resValue "string", "api", "https://api.themoviedb.org/3/"
         }
     }
 
@@ -108,4 +110,7 @@ dependencies {
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 }
