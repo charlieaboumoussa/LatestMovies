@@ -1,4 +1,4 @@
-/*
+package com.example.latestmovies.common.base.state/*
  *  Copyright 2017 Google Inc.
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -61,6 +61,6 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
         value = null
     }
     companion object {
-        private val TAG = "SingleLiveEvent"
+        private val TAG = "com.example.latestmovies.common.base.state.SingleLiveEvent"
     }
 }
