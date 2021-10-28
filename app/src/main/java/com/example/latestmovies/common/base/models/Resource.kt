@@ -1,4 +1,4 @@
-package com.example.latestmovies.base.models
+package com.example.latestmovies.common.base.models
 
 sealed class Resource<T>(
     val data: T? = null,
