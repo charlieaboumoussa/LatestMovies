@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "MOVIE")
 class Movie {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey()
     @SerializedName("id")
     var id: Int = 0
 
